@@ -71,7 +71,17 @@ public class StudentGradingSystem {
 
             switch (choice) {
                 case 1 :
-
+                    addStudent(sc, students);
+                    break;
+                case 2:
+                    displayStudents(students);
+                    break;
+                case 3:
+                    System.out.println("Exiting.....");
+                    sc.close();
+                    return;
+                default:
+                    System.out.println("Invalid choice. Please try again...");
             }
         }
     }
@@ -95,5 +105,17 @@ public class StudentGradingSystem {
         }
         students.add(student);
         sc.nextLine();
+        System.out.println("Student added successfully.");
+    }
+
+    public static void displayStudents(List<Student> students) {
+        if(students.isEmpty()) {
+            System.out.println("No students to display.");
+            return;
+        }
+        System.out.println("\n--- Students Reports");
+        for(Student student : students) {
+            System.out.println(student);
+        }
     }
 }
